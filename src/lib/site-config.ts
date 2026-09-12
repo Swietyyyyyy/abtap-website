@@ -15,7 +15,7 @@ export const siteConfig = {
   // to świadoma decyzja użytkownika.
   domain: "ejbitap.pl", // potwierdzone przez użytkownika — zwykła .pl
   contactEmail: "ejbitap.biuro@wp.pl", // potwierdzone przez użytkownika (skrzynka na wp.pl)
-  whatsappNumber: "48600000000", // TODO: confirm real WhatsApp business number
+  whatsappNumber: "48517896998", // potwierdzone przez użytkownika
   social: {
     instagram: "https://instagram.com/abtap",
     facebook: "https://facebook.com/abtap",
