@@ -1,8 +1,13 @@
 import { clsx } from "clsx";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProductThumb } from "@/components/ui/ProductThumb";
 import { Reveal } from "@/components/ui/Reveal";
 import { products } from "@/lib/site-config";
+
+const productImages: Record<string, string> = {
+  "Akrylowa tabliczka NFC": "/images/product-tabliczka.jpg",
+  "Stojak NFC na ladę": "/images/product-stojak.jpg",
+};
 
 export function Products() {
   return (
@@ -41,7 +46,15 @@ export function Products() {
                     dark ? "bg-ink-soft" : "bg-cream",
                   )}
                 >
-                  <ProductThumb tone={dark ? "dark" : "light"} />
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                    <Image
+                      src={productImages[product.title]}
+                      alt={product.title}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 90vw"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="px-2.5 pb-2 pt-4">
                     <h3
                       className={clsx(
