@@ -1,18 +1,10 @@
-import { Check, Star } from "lucide-react";
+import { Check } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { heroContent, siteConfig } from "@/lib/site-config";
-import { generateQrSvg } from "@/lib/qr";
+import { heroContent } from "@/lib/site-config";
 
-export async function Hero() {
-  // Demo QR code: in production this points at the client's real Google
-  // review link. Generated server-side so the hero visual and the /qr
-  // generator tool share one code path.
-  const demoQrSvg = await generateQrSvg(`https://${siteConfig.domain}/demo-opinia`, {
-    colorDark: "#f6f4ee",
-    colorLight: "#00000000",
-  });
-
+export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-14 pb-20 md:pt-20 md:pb-28">
       <div
@@ -57,39 +49,16 @@ export async function Hero() {
         </Reveal>
 
         <Reveal delay={0.15} className="relative mx-auto w-full max-w-sm">
-          <div className="relative rounded-[1.75rem] border border-white/10 bg-gradient-to-b from-card-dark to-ink-soft p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-onDark-muted">
-                Podziel się swoją opinią
-              </span>
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={12} className="fill-gold text-gold" />
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-5 flex items-center justify-center gap-1.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-sm font-bold text-ink">
-                {siteConfig.brand.charAt(0)}
-              </span>
-              <span className="font-[family-name:var(--font-display)] text-xl font-bold text-onDark">
-                {siteConfig.brand}
-              </span>
-            </div>
-
-            <div
-              className="mx-auto mt-6 flex h-36 w-36 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] p-3"
-              dangerouslySetInnerHTML={{ __html: demoQrSvg }}
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+            <Image
+              src="/images/hero.jpg"
+              alt="Tabliczka NFC ABtap na blacie baru, gotowa do zbierania opinii Google"
+              fill
+              sizes="(min-width: 768px) 384px, 90vw"
+              className="object-cover"
+              priority
             />
-
-            <p className="mt-4 text-center text-[11px] text-onDark-muted">
-              Zeskanuj QR lub zbliż telefon
-            </p>
           </div>
-
-          {/* Stand mock-up */}
-          <div className="mx-auto -mt-2 h-6 w-40 rounded-b-xl bg-gradient-to-b from-[#8a5a2f] to-[#5c3b1e] shadow-[0_18px_30px_-14px_rgba(0,0,0,0.6)]" />
         </Reveal>
       </div>
     </section>
