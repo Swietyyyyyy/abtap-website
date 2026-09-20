@@ -30,29 +30,42 @@ export function Personalization() {
         </Reveal>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {personalization.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.1}>
-              <div className={clsx("h-full overflow-hidden rounded-card p-3", cardTone[item.variant])}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image
-                    src={personalizationImages[item.title]}
-                    alt={`Wariant kolorystyczny: ${item.title}`}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 90vw"
-                    className="object-cover"
-                  />
+          {personalization.map((item, index) => {
+            const dark = item.variant === "dark";
+            return (
+              <Reveal key={item.title} delay={index * 0.1}>
+                <div className={clsx("h-full overflow-hidden rounded-card p-3", cardTone[item.variant])}>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                    <Image
+                      src={personalizationImages[item.title]}
+                      alt={`Wariant kolorystyczny: ${item.title}`}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 90vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="px-2.5 pb-2 pt-4">
+                    <h3
+                      className={clsx(
+                        "font-[family-name:var(--font-display)] text-lg font-semibold",
+                        dark ? "text-onDark" : "text-onLight",
+                      )}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      className={clsx(
+                        "mt-2.5 text-sm leading-relaxed",
+                        dark ? "text-onDark-muted" : "text-onLight-muted",
+                      )}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="px-2.5 pb-2 pt-4">
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-onLight">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-onLight-muted">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
