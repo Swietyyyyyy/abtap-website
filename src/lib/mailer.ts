@@ -37,7 +37,10 @@ function getTransporter() {
 export async function sendContactNotification(payload: ContactPayload) {
   const transporter = getTransporter();
   const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.contactEmail;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL || `no-reply@${siteConfig.domain}`;
+  // Most providers (wp.pl included) reject a message whose From address is not
+  // the authenticated mailbox, so the SMTP user takes precedence here.
+  const fromEmail =
+    process.env.SMTP_USER || process.env.CONTACT_FROM_EMAIL || `no-reply@${siteConfig.domain}`;
 
   const subject = `Nowe zapytanie ze strony ${siteConfig.brand} — ${payload.companyName}`;
   const text = [
