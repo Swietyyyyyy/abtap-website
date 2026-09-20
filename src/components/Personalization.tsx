@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProductThumb } from "@/components/ui/ProductThumb";
 import { Reveal } from "@/components/ui/Reveal";
 import { personalization } from "@/lib/site-config";
 
@@ -8,6 +8,12 @@ const cardTone: Record<(typeof personalization)[number]["variant"], string> = {
   dark: "bg-ink-soft",
   light: "bg-cream-soft",
   gold: "bg-gold-soft/25",
+};
+
+const personalizationImages: Record<string, string> = {
+  Czarny: "/images/personalizacja-czarny.jpg",
+  Biały: "/images/personalizacja-bialy.jpg",
+  Przezroczysty: "/images/personalizacja-przezroczysty.jpg",
 };
 
 export function Personalization() {
@@ -27,7 +33,15 @@ export function Personalization() {
           {personalization.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.1}>
               <div className={clsx("h-full overflow-hidden rounded-card p-3", cardTone[item.variant])}>
-                <ProductThumb tone={item.variant === "dark" ? "dark" : "light"} />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                  <Image
+                    src={personalizationImages[item.title]}
+                    alt={`Wariant kolorystyczny: ${item.title}`}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 90vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="px-2.5 pb-2 pt-4">
                   <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-onLight">
                     {item.title}
