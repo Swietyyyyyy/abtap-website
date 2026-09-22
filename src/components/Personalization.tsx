@@ -35,7 +35,7 @@ export function Personalization() {
             return (
               <Reveal key={item.title} delay={index * 0.1}>
                 <div className={clsx("h-full overflow-hidden rounded-card p-3", cardTone[item.variant])}>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                  <div className="relative aspect-square overflow-hidden rounded-xl">
                     <Image
                       src={personalizationImages[item.title]}
                       alt={`Wariant kolorystyczny: ${item.title}`}
