@@ -46,7 +46,7 @@ export function Products() {
                     dark ? "bg-ink-soft" : "bg-cream",
                   )}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                  <div className="relative aspect-square overflow-hidden rounded-xl">
                     <Image
                       src={productImages[product.title]}
                       alt={product.title}
