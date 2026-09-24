@@ -1,5 +1,5 @@
 /**
- * Central content & configuration file for the ABtap marketing site.
+ * Central content & configuration file for the EjBiTap marketing site.
  *
  * Keeping copy, contact details and product data here (instead of scattering
  * it across components) makes future edits low-risk: swapping the company
@@ -7,12 +7,10 @@
  */
 
 export const siteConfig = {
-  brand: "ABtap",
+  brand: "EjBiTap",
   tagline: "Premium rozwiązania NFC do zbierania opinii Google",
-  // Marka na stronie zostaje "ABtap"; docelowa domena to "ejbitap" (potwierdzona
-  // jako dostępna do rejestracji — sprawdzone na żywo w home.pl: ejbitap.pl,
-  // ejbitap.com, ejbitap.eu i inne końcówki są wolne). Rozjazd nazwa/domena
-  // to świadoma decyzja użytkownika.
+  // Nazwa marki na stronie: "EjBiTap" — zgodna z domeną ejbitap.pl
+  // (zmiana z "ABtap" na prośbę użytkownika, 24.09.2026).
   domain: "ejbitap.pl", // potwierdzone przez użytkownika — zwykła .pl
   contactEmail: "ejbitap.biuro@wp.pl", // potwierdzone przez użytkownika (skrzynka na wp.pl)
   whatsappNumber: "48517896998", // potwierdzone przez użytkownika
