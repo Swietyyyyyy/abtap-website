@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/Button";
@@ -12,14 +11,14 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-ink/85 backdrop-blur-md">
       <nav className="container-xl flex h-16 items-center justify-between md:h-20">
-        <Link href="#top" className="flex items-center gap-2.5">
+        <a href="#top" className="flex items-center gap-2.5">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold text-sm font-bold text-ink">
             {siteConfig.brand.charAt(0)}
           </span>
           <span className="font-[family-name:var(--font-display)] text-lg font-bold text-onDark">
             {siteConfig.brand}
           </span>
-        </Link>
+        </a>
 
         <div className="hidden items-center gap-8 md:flex">
           {siteConfig.nav.map((item) => (
@@ -63,9 +62,11 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-            <Button href="#kontakt" variant="primary" className="mt-2 w-full">
-              Poproś o bezpłatną wycenę
-            </Button>
+            <div onClick={() => setOpen(false)}>
+              <Button href="#kontakt" variant="primary" className="mt-2 w-full">
+                Poproś o bezpłatną wycenę
+              </Button>
+            </div>
           </div>
         </div>
       )}
