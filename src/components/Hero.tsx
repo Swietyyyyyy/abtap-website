@@ -52,7 +52,7 @@ export function Hero() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
             <Image
               src="/images/hero.jpg"
-              alt="Tabliczka NFC ABtap na blacie baru, gotowa do zbierania opinii Google"
+              alt="Tabliczka NFC EjBiTap na blacie baru, gotowa do zbierania opinii Google"
               fill
               sizes="(min-width: 768px) 384px, 90vw"
               className="object-cover"
