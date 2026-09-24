@@ -53,5 +53,12 @@ export function Button({
     );
   }
 
+  // In-page anchors (e.g. "#kontakt") use a plain <a>: next/link ignores a click
+  // when the URL already ends with the same hash, so the button would stop
+  // scrolling to its section after the first use.
+  if (href.startsWith("#")) {
+    return <a href={href}>{content}</a>;
+  }
+
   return <Link href={href}>{content}</Link>;
 }
